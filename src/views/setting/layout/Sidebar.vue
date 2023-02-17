@@ -1,0 +1,177 @@
+<template>
+  <nav class="sidebar" id="sidebar">
+    <ul class="nav">
+      <router-link
+        v-for="page in content"
+        :key="page.id"
+        :to="{ name: page.component }"
+      >
+        <li class="nav-item" :class="{ active: page.id === isActive }">
+          <a class="nav-link">
+            <span class="menu-icon">
+              <icon :name="page.icon"></icon>
+            </span>
+            <span class="menu-title">{{ page.title }}</span>
+          </a>
+        </li>
+      </router-link>
+    </ul>
+  </nav>
+</template>
+
+<script>
+export default {
+  name: "Sidebar",
+  data() {
+    return {
+      content: [
+        {
+          id: 0,
+          title: "User Information",
+          component: "UserInformation",
+          icon: "info",
+        },
+        {
+          id: 1,
+          title: "Change Password",
+          component: "ChangePassword",
+          icon: "lock",
+        },
+      ],
+    };
+  },
+  computed: {
+    isActive() {
+      let routerSlug = this.$route.path.split("/")[2];
+      const item = this.content.find(
+        (item) => item.title.split(" ").join("-").toLowerCase() == routerSlug
+      );
+
+      console.log(item);
+      return item ? item.id : 0;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.sidebar {
+  min-height: 100vh;
+  height: 100%;
+  // background: #191c24;
+  font-weight: normal;
+  padding: 0;
+  @include transition(width 0.25s ease, background 0.25s ease);
+  &.close {
+    .nav-item {
+      padding-right: 0;
+    }
+    .menu-title {
+      display: none;
+    }
+    .sidebar-brand {
+      &-wrapper {
+        width: 70px;
+      }
+      &-logo {
+        display: none;
+      }
+      &-logo-mini {
+        display: block;
+      }
+    }
+  }
+  .nav {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-bottom: 6rem;
+    padding-top: 7rem;
+    & > a {
+      &:nth-child(5n + 1) {
+        .menu-icon {
+          fill: $secondary;
+        }
+      }
+      &:nth-child(5n + 2) {
+        .menu-icon {
+          fill: $warning;
+        }
+      }
+      &:nth-child(5n + 3) {
+        .menu-icon {
+          fill: $danger;
+        }
+      }
+      &:nth-child(5n + 4) {
+        .menu-icon {
+          fill: $success;
+        }
+      }
+      &:nth-child(5n) {
+        .menu-icon {
+          fill: $primary;
+        }
+      }
+    }
+    &-item {
+      position: relative;
+      cursor: pointer;
+      padding-right: 2rem;
+      @include transition(background 0.25s ease);
+      &.active {
+        .nav-link {
+          background: $primary-color-light;
+          &::before {
+            content: "";
+            width: 3px;
+            height: 100%;
+            background: $primary-color-dark;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+        }
+        .menu-title {
+          color: $dark-color;
+        }
+      }
+      &:hover {
+        .nav-link {
+          background: $primary-color-light;
+        }
+        .menu-title {
+          color: $dark-color;
+        }
+      }
+    }
+    &-link {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      padding: 1.1rem;
+      color: $dark-color;
+      @include transition(color 0.45s);
+      border-radius: 0px 10rem 10rem 0px;
+    }
+  }
+  & .menu {
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 0.5rem;
+      @include icon;
+      border-radius: 100%;
+      background: rgba(108, 114, 147, 0.2);
+    }
+    &-title {
+      font-size: 1.6rem;
+      @include transition(all 0.25s ease);
+    }
+  }
+}
+</style>

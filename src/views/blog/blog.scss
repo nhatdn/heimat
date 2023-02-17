@@ -1,0 +1,112 @@
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.blog {
+  padding: 7rem 0;
+  input[type="file"] {
+    display: none;
+  }
+  .invisible {
+    opacity: 0 !important;
+  }
+  &__info {
+    padding-bottom: 2rem;
+    input {
+      width: 100%;
+      margin: 1rem 0;
+      padding: 1rem;
+      border: none;
+      font-size: 1.4rem;
+      transition: 0.4s ease-in-out all;
+      outline: none;
+      border-left: 1px solid #303030;
+      border &:focus {
+        box-shadow: -1px 0 0 0 #303030;
+      }
+    }
+  }
+  &__title {
+    input {
+      padding: 1.5rem;
+      font-size: 2.4rem;
+    }
+  }
+
+  &__category {
+    padding: 3rem 0;
+    select {
+      width: 33rem;
+      padding: 1rem 2rem;
+      border-radius: 3px;
+      font-size: 1.5rem;
+      box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, 0.5);
+      border: 1px solid $primary-color;
+      outline: none;
+      option {
+        padding: 1rem 2rem;
+        outline: none;
+        &:hover {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+  &__upload-file {
+    padding-top: 2rem;
+    div {
+      padding: 2rem 1rem 0;
+      font-size: 1.4rem;
+      font-weight: 500;
+      display: flex;
+    }
+    span {
+      padding-right: 1rem;
+      flex-shrink: 0;
+    }
+    p {
+      @include textClamp();
+    }
+  }
+  &__testing {
+    font-size: 3rem;
+  }
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__btn {
+    text-transform: uppercase;
+  }
+  label,
+  button {
+    margin-right: 2rem;
+    padding: 1rem 3rem;
+    background: $primary-color-light;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 1.4;
+    color: $dark-color-dark;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+  }
+  .err-message {
+    font-size: 1.6rem;
+    color: red;
+    margin-top: 3rem;
+  }
+}

@@ -1,0 +1,49 @@
+html,
+body {
+  font-size: 62.5%;
+  line-height: 1.5;
+  font-family: $font-primary;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: $secondary-color-light;
+
+  &::-webkit-scrollbar {
+    height: 0.8rem;
+  }
+  &::-webkit-scrollbar-track {
+    margin: 1rem;
+    background: linear-gradient($secondary-color-light, $light-color-semi);
+    opacity: 0.5;
+    border-radius: 1rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      $light-color-darkest,
+      $secondary-color,
+      $primary-color
+    );
+    opacity: 0.5;
+    border-radius: 1rem;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      $light-color-semi,
+      $secondary-color-dark,
+      $primary-color-dark
+    );
+  }
+  @supports (scrollbar-color: $primary-color) {
+    scrollbar-color: $primary-color;
+    scrollbar-width: auto;
+  }
+}

@@ -1,0 +1,36 @@
+@mixin transition($trans...) {
+  transition: $trans;
+  -webkit-transition: $trans;
+  -moz-transition: $trans;
+  -ms-transition: $trans;
+}
+@mixin boxShadow($box-shadow) {
+  box-shadow: $box-shadow;
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+}
+@mixin roundImage($size: 3.5rem, $radius: 50%) {
+  width: $size;
+  height: $size;
+  object-fit: cover;
+  border-radius: $radius;
+}
+@mixin roundObject($size: 3.5rem, $color: $secondary-color) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $color;
+}
+@mixin icon($size: 3.5rem, $color: $light-color) {
+  width: $size;
+  height: $size;
+  fill: $color;
+}
+@mixin textClamp($rows: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $rows;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}

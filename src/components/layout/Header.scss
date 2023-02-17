@@ -1,0 +1,299 @@
+.header {
+  &-top {
+    background: #ccabdb;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  &-container {
+    display: grid;
+    grid-template-columns: 3fr 8fr 2fr;
+    height: 7rem;
+  }
+  &-bottom {
+    padding-top: 7rem;
+    background-color: #ffddff;
+  }
+  &-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 0;
+
+    a {
+      font-family: $font-primary;
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8rem;
+      color: $dark-color-dark;
+    }
+  }
+  &-mid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+    border-left: 1px solid #d4d4d4;
+    border-right: 1px solid #d4d4d4;
+    height: 5rem;
+    padding: 0.8rem 1rem;
+    &__wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &-end {
+    .navbar {
+      &-profile{
+        img{
+          @include roundImage(4.5rem)
+        }
+      }
+      &-nav-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        .nav {
+          &-item {
+            position: relative;
+            display: flex;
+            fill: $light-color;
+            cursor: pointer;
+            &:last-child {
+              .navbar-dropdown {
+                top: 5rem;
+              }
+            }
+          }
+          &-link {
+            position: relative;
+            .icon {
+              width: 2rem;
+              height: 2rem;
+              fill: #595959;
+              @include transition(transform 0.1s ease);
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+            .dot {
+              width: 0.7rem;
+              height: 0.7rem;
+              background: $success;
+              position: absolute;
+              top: 0;
+              left: 75%;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+      &-dropdown {
+        position: absolute;
+        font-size: 0.9rem;
+        margin-top: 0;
+        top: 3.6rem;
+        right: 0;
+        left: auto;
+        border: none;
+        border-radius: 4px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        animation-duration: 0.25s;
+        animation-fill-mode: both;
+        min-width: 10rem;
+        color: #828282;
+        text-align: left;
+        list-style: none;
+        background-color: #fffafa;
+        background-clip: padding-box;
+
+        .dropdown {
+          &-item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 1.3rem;
+            gap: 1.5rem;
+            cursor: pointer;
+            white-space: nowrap;
+            &:hover {
+              background-color: $primary-color-light;
+            }
+          }
+          &-divider {
+            border-top: 1px solid #eeeeee;
+          }
+          &-navigating {
+            text-align: center;
+          }
+        }
+        &-title {
+          font-weight: 600;
+        }
+
+        &-title,
+        .dropdown-navigating {
+          font-size: 1.6rem;
+          padding: 1.5rem 2rem;
+        }
+      }
+    }
+    .preview {
+      &-thumbnail {
+        .profile-pic {
+          width: 4rem;
+          height: 4rem;
+          @include roundImage(4rem);
+        }
+      }
+      &-icon {
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        .icon {
+          @include icon(1.8rem, #595959);
+        }
+      }
+      &-subject {
+        font-size: 1.5rem;
+        &-description {
+          font-size: 1.2rem;
+          color: $dark-color-light;
+        }
+      }
+    }
+
+    .header-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      margin: 0;
+      border: 0;
+      border-radius: 4px;
+      background-color: $secondary-color;
+      font-family: $font-primary;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-transform: capitalize;
+      color: #fff;
+      line-height: 1.2;
+      outline: 0;
+      user-select: none;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      .btn-icon {
+        height: 1.8rem;
+        fill: $light-color;
+      }
+      &:hover {
+        background-color: $secondary-color-dark;
+      }
+    }
+  }
+  &-search {
+    position: relative;
+    .search {
+      position: absolute;
+      right: 1rem;
+      top: 0.7rem;
+      fill: #78667b;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    & .search:hover,
+    & .search:hover:active {
+      transform: scale(1.2);
+    }
+  }
+
+  .time {
+    color: gray;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+  }
+  form {
+    padding: 7px;
+  }
+  input {
+    padding: 0.8rem 1rem;
+    width: 30rem;
+    border-radius: 30px;
+    background-color: rgba($color: $primary-color-light, $alpha: 0.5);
+    color: $dark-color-dark;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    @include transition(background-color 0.3s ease);
+    &:focus {
+      border: 1px solid #9b7ca9;
+      background-color: rgba($color: $primary-color-light, $alpha: 0.8);
+    }
+  }
+
+  .header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 3rem;
+    &-start {
+      & p {
+        color: black;
+        font-size: 1.7rem;
+        display: inline-block;
+      }
+    }
+    &-end {
+      display: flex;
+      align-items: center;
+      & .icon {
+        fill: #828282;
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    & ul {
+      & a {
+        display: inline-block;
+        text-decoration: none;
+        & li {
+          padding: 0.5rem 1rem;
+          color: $dark-color-semi;
+          font-size: 1.6rem;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          @include transition(color 0.3s ease);
+          &:hover {
+            color: $dark-color-lighter;
+          }
+        }
+      }
+    }
+  }
+  &-end {
+    fill: #595959;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    width: 20rem;
+  }
+}

@@ -1,0 +1,107 @@
+.content {
+  &-wrapper {
+    background: #000;
+    padding: 3rem;
+    width: 100%;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+  &-header {
+    margin-bottom: 1.5rem;
+  }
+  &-title {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    font-weight: 500;
+  }
+  &-card {
+    margin-bottom: 1.5rem;
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #191c24;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+      &-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 2.8rem 2.5rem;
+      }
+      &-title {
+        color: #ffffff;
+        margin-bottom: 1.125rem;
+        text-transform: capitalize;
+        font-size: 1.8rem;
+      }
+      &-barge {
+        margin-left: 0.5rem;
+        padding: 0.5rem;
+        border: 1px solid $secondary;
+        border-radius: 2px;
+        color: $secondary;
+        text-transform: uppercase;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      &-description {
+        color: #bfbfbf;
+        font-weight: 300;
+        font-size: 1.4rem;
+        span {
+          color: $secondary-color-light;
+        }
+      }
+      &-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        .table {
+          color: #6c7293;
+          vertical-align: middle;
+          width: 100%;
+          border-spacing: 0;
+          th,
+          td {
+            font-size: 1.4rem;
+            padding: 1.5rem;
+            white-space: nowrap;
+            border-top: 1px solid #2c2e33;
+          }
+          th {
+           
+            text-align: left;
+          }
+          td {
+            input {
+              padding: 1rem;
+              outline: none;
+              border: 1px solid #2c2e33;
+              background-color: transparent;
+              color: inherit;
+              &:read-only {
+                border: 1px solid transparent;
+              }
+            }
+            .icon {
+              cursor: pointer;
+              margin-right: 1rem;
+              fill: $primary;
+              &-delete {
+                fill: $danger;
+              }
+              &-success {
+                fill: $success;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

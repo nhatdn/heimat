@@ -1,0 +1,47 @@
+$font-primary: "Nunito", sans-serif;
+$font-logo: "Sen", sans-serif;
+
+// primary color
+$primary-color: #ccabdb;
+$primary-color-light: #ffddff;
+$primary-color-dark: #9b7ca9;
+
+// secondary color
+$secondary-color: #08979d;
+$secondary-color-light: #6ec6ca;
+$secondary-color-dark: #055b5c;
+
+// light scheme color
+$light-color: #fff;
+$light-color-light: #f0f2f4;
+$light-color-semi: #e2e4e9;
+$light-color-dark: #c4c9d4;
+$light-color-darker: #98a1b3;
+$light-color-darkest: #7b869d;
+
+// dark scheme color
+$dark-color: #000;
+$dark-color-dark: #303030;
+$dark-color-semi: #595959;
+$dark-color-light: #828282;
+$dark-color-lighter: #ababab;
+$dark-color-lightest: #d4d4d4;
+// declare variables
+
+$error: #c03d29;
+
+// Admin pages
+$danger: #fc424a;
+$warning:  #ffab00;
+$primary: #8f5fe8;
+$secondary: #0090e7;
+$success: #00d25b;
+
+$card-shadow: rgba(50, 50, 93, 0.25) 0 1.3rem 2.7rem -0.5rem,
+    rgba(0, 0, 0, 0.3) 0 0.8rem 1.6rem -0.8rem;
+
+$laptop: "only screen and (max-width : 1199px)";
+$tablet: "only screen and (max-width : 991px)";
+$phablet: "only screen and (max-width : 767px)";
+$phone-landscape: "only screen and (max-width : 575px)";
+$phone: "only screen and (max-width : 375px)";
